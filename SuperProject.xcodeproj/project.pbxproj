@@ -164,7 +164,6 @@
 		C6561E0A20CA68400066877E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6561E0920CA68400066877E /* AddressBook.framework */; };
 		C6561E0C20CA684B0066877E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6561E0B20CA684A0066877E /* QuartzCore.framework */; };
 		C6561E0D20CA68530066877E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6556C04201B0F3E00A3C882 /* CoreGraphics.framework */; };
-		C6561E0E20CA68640066877E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C65A377E201EEA280066A895 /* libc++.tbd */; };
 		C656249720CBD2DF0066877E /* QQingSTTView.m in Sources */ = {isa = PBXBuildFile; fileRef = C656244720CBD2CB0066877E /* QQingSTTView.m */; };
 		C656249820CBD2DF0066877E /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C656244B20CBD2CD0066877E /* ISRDataHelper.m */; };
 		C656249920CBD2DF0066877E /* QQingSpeechRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = C656244D20CBD2CD0066877E /* QQingSpeechRecognizer.m */; };
@@ -574,6 +573,9 @@
 		C6EF78EB20568CAA00D7EA78 /* CYLPlusButtonSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EF78EA20568CAA00D7EA78 /* CYLPlusButtonSubclass.m */; };
 		C6FD59C62023061300792C3A /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FD59AF2023061300792C3A /* libUMessage_Sdk_1.5.0a.a */; };
 		C6FD59C8202306CB00792C3A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FD59C7202306CB00792C3A /* UserNotifications.framework */; };
+		C774F1B52DE39430007E4866 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C65A377E201EEA280066A895 /* libc++.tbd */; };
+		C7D778742DE4CFC6001D06C9 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D778732DE4CFC6001D06C9 /* libstdc++.6.0.9.tbd */; };
+		C7D778762DE4CFCE001D06C9 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D778752DE4CFCE001D06C9 /* libstdc++.6.tbd */; };
 		FC83D78C6F6E342EA45C984D /* libPods-SuperProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7205373AE02612EF52B6C30D /* libPods-SuperProject.a */; };
 /* End PBXBuildFile section */
 
@@ -1579,6 +1581,8 @@
 		C6FD59AF2023061300792C3A /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
 		C6FD59B02023061300792C3A /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		C6FD59C7202306CB00792C3A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		C7D778732DE4CFC6001D06C9 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		C7D778752DE4CFCE001D06C9 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1586,8 +1590,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7D778762DE4CFCE001D06C9 /* libstdc++.6.tbd in Frameworks */,
+				C7D778742DE4CFC6001D06C9 /* libstdc++.6.0.9.tbd in Frameworks */,
+				C774F1B52DE39430007E4866 /* libc++.tbd in Frameworks */,
 				C6CF38F120D5307A00F39C5D /* Security.framework in Frameworks */,
-				C6561E0E20CA68640066877E /* libc++.tbd in Frameworks */,
 				C6561E0D20CA68530066877E /* CoreGraphics.framework in Frameworks */,
 				C65624C320CBD53B0066877E /* iflyMSC.framework in Frameworks */,
 				C6561E0C20CA684B0066877E /* QuartzCore.framework in Frameworks */,
@@ -1622,6 +1628,8 @@
 		5530EE61352204082E38E975 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7D778752DE4CFCE001D06C9 /* libstdc++.6.tbd */,
+				C7D778732DE4CFC6001D06C9 /* libstdc++.6.0.9.tbd */,
 				C6CF38F020D5307A00F39C5D /* Security.framework */,
 				C6561E0B20CA684A0066877E /* QuartzCore.framework */,
 				C6561E0920CA68400066877E /* AddressBook.framework */,
@@ -4913,7 +4921,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Longzheng Inter Software Technology Co., Ltd (9WM5WM4GZ3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9WM5WM4GZ3;
+				DEVELOPMENT_TEAM = GVRN8DQUJ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4931,10 +4939,11 @@
 					"$(PROJECT_DIR)/SuperProject/libs/analytics",
 					"$(PROJECT_DIR)/SuperProject/lib",
 					"$(PROJECT_DIR)/SuperProject/libs",
+					"$(SDKROOT)/System/Library/Frameworks",
 				);
 				GCC_PREFIX_HEADER = SuperProject/PrefixHeader.pch;
 				INFOPLIST_FILE = SuperProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5032,8 +5041,9 @@
 					"\"SystemConfiguration\"",
 					"-framework",
 					"\"UIKit\"",
+					"-ld_classic",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.www.SuperProject;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.www.SuperProject-zhiyi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5054,7 +5064,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Longzheng Inter Software Technology Co., Ltd (9WM5WM4GZ3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9WM5WM4GZ3;
+				DEVELOPMENT_TEAM = GVRN8DQUJ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5072,10 +5082,11 @@
 					"$(PROJECT_DIR)/SuperProject/libs/analytics",
 					"$(PROJECT_DIR)/SuperProject/lib",
 					"$(PROJECT_DIR)/SuperProject/libs",
+					"$(SDKROOT)/System/Library/Frameworks",
 				);
 				GCC_PREFIX_HEADER = SuperProject/PrefixHeader.pch;
 				INFOPLIST_FILE = SuperProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5173,8 +5184,9 @@
 					"\"SystemConfiguration\"",
 					"-framework",
 					"\"UIKit\"",
+					"-ld_classic",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.www.SuperProject;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.www.SuperProject-zhiyi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

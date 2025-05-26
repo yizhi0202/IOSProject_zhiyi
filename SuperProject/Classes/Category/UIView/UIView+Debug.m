@@ -18,7 +18,9 @@
     // Safe guard: do we have an UIView (or something that has a layer)?
     if ([result respondsToSelector:@selector(layer)]) {
         // Get layer for this view.
-        CALayer *layer = [result layer];
+        // 明确转换为UIView类型
+        UIView *view = (UIView *)result;
+        CALayer *layer = [view layer];
         // Set border on layer.
         layer.borderWidth = 2;
         layer.borderColor = [[UIColor redColor] CGColor];
@@ -36,7 +38,8 @@
     // Safe guard: do we have an UIView (or something that has a layer)?
     if ([result respondsToSelector:@selector(layer)]) {
         // Get layer for this view.
-        CALayer *layer = [result layer];
+        UIView *view = (UIView *)result;
+        CALayer *layer = [view layer];
         // Set border on layer.
         layer.borderWidth = 2;
         layer.borderColor = [[UIColor blueColor] CGColor];
