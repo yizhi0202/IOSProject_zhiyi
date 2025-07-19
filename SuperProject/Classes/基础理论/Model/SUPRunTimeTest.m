@@ -116,7 +116,11 @@
     free(ivarList);
 }
 
+# pragma mark 模拟覆盖
 
+- (void)showInfo:(NSString *)info {
+    NSLog(@"SUPRunTimeTest showInfo call %@", info);
+}
 
 
 

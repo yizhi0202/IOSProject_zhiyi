@@ -5048,7 +5048,10 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WARNING_CFLAGS = "-Wno-documentation";
+				WARNING_CFLAGS = (
+					"-Wno-documentation",
+					"-Wincomplete-implementation",
+				);
 			};
 			name = Debug;
 		};
@@ -5191,7 +5194,10 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WARNING_CFLAGS = "-Wno-documentation";
+				WARNING_CFLAGS = (
+					"-Wno-documentation",
+					"-Wincomplete-implementation",
+				);
 			};
 			name = Release;
 		};

@@ -9,6 +9,7 @@
 #import "SUPUsertProtocol.h"
 
 @implementation SUPUsertProtocol
+//todo@yz 优化这里的协议示例 完整应该是持有一个weak 的 delegate 这个delegate实现协议方法
 
 
 - (void)connectDataBase:(id<SUPDataBaseConnectionProtocol>)dataBase withIndentifier:(NSString *)Indentifier

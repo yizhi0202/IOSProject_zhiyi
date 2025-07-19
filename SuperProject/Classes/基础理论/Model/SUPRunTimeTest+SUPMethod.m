@@ -19,6 +19,10 @@
     
 }
 
+- (void)showInfo:(NSString *)info {
+    NSLog(@"SUPRunTimeTest+SUPMethod showInfo call %@", info);
+}
+
 
 
 @end

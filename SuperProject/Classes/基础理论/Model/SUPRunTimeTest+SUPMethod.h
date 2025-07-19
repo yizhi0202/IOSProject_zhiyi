@@ -14,4 +14,6 @@
 
 - (NSString *)showUserAge:(NSString *)age;
 
+- (void)showInfo:(NSString *)info;
+
 @end

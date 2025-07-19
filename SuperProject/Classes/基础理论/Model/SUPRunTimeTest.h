@@ -21,4 +21,6 @@
 
 - (NSString *)showUserName:(NSString *)userName;
 
+- (void)showInfo:(NSString *)info;
+
 @end

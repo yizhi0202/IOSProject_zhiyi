@@ -159,13 +159,55 @@
     NSLog(@"==========================================================");
     
     // 元类是什么
-    Class meta_class = objc_getMetaClass(class_getName([self.myRunTimeTest class]));
+    Class meta_class = object_getClass([self.myRunTimeTest class]);
     NSLog(@"%s's meta-class is %s", class_getName([SUPRunTimeTest class]), class_getName(meta_class));
+    NSLog(@"==========================================================");
+    
+    // 元类是什么
+    Class root_meta_class = object_getClass(meta_class);
+    NSLog(@"%s's roo-meta-class is %s", class_getName([SUPRunTimeTest class]), class_getName(root_meta_class));
     NSLog(@"==========================================================");
     
     // 变量实例大小
     NSLog(@"instance size: %zu", class_getInstanceSize([self.myRunTimeTest class]));
     NSLog(@"==========================================================");
+    
+    Class rootCls = object_getClass([NSObject class]);
+    NSLog(@"rootCls is %s", object_getClassName(rootCls));
+    
+/**
+ // 测试同名覆盖调用原类方法
+    u_int count;
+    Method *methods = class_copyMethodList([SUPRunTimeTest class], &count);
+    NSInteger index = 0;
+    
+    for (int i = 0; i < count; i++) {
+        SEL name = method_getName(methods[i]);
+        NSString *strName = [NSString stringWithCString:sel_getName(name) encoding:NSUTF8StringEncoding];
+
+        if ([strName isEqualToString:@"showInfo:"]) {
+            index = i;  // 先获取原类方法在方法列表中的索引
+        }
+    }
+    
+   
+    SEL sel = method_getName(methods[index]);
+    IMP imp = method_getImplementation(methods[index]);
+    ((void (*)(id, SEL, NSString *))imp)(self.myRunTimeTest,sel, @"argInfo");
+ ***/
+    
+    
+    // 验证代码
+    Class cls = [UIButton class];
+    Class metaCls = object_getClass(cls);
+    Class rootMetaCls = object_getClass(metaCls);
+
+    NSLog(@"类：%@", cls);
+    NSLog(@"元类：%@", metaCls);
+    NSLog(@"根元类：%@", rootMetaCls);
+    
+    NSLog(@"==========================================================");
+
     
 }
 
