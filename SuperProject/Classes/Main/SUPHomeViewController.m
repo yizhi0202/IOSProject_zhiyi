@@ -16,6 +16,7 @@
 //#import "SUPLockViewController.h"
 #import "SUPProtocolViewController.h"
 #import "SUPBlockLoopViewController.h"
+#import "SUPTableViewHitchDetectViewController.h"
 //
 //#import "SUPDynamicViewController.h"
 //#import "SUPCoreAnimationViewController.h"
@@ -57,9 +58,12 @@
 
     SUPWordArrowItem *item04 = [SUPWordArrowItem itemWithTitle:@"Block 内存释放" subTitle: nil];
     item04.destVc = [SUPBlockLoopViewController class];
+    
+    SUPWordArrowItem *item05 = [SUPWordArrowItem itemWithTitle:@"UITableView卡顿排查" subTitle: nil];
+    item05.destVc = [SUPTableViewHitchDetectViewController class];
 
     
-    SUPItemSection *section0 = [SUPItemSection sectionWithItems:@[item00,item01,item03,item04] andHeaderTitle:@"生命周期, RunTime" footerTitle:nil];
+    SUPItemSection *section0 = [SUPItemSection sectionWithItems:@[item00,item01,item03,item04,item05] andHeaderTitle:@"生命周期, RunTime" footerTitle:nil];
 
     [self.sections addObject:section0];
 

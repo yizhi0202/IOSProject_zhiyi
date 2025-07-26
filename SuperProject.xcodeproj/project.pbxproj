@@ -574,6 +574,8 @@
 		C6FD59C62023061300792C3A /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FD59AF2023061300792C3A /* libUMessage_Sdk_1.5.0a.a */; };
 		C6FD59C8202306CB00792C3A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FD59C7202306CB00792C3A /* UserNotifications.framework */; };
 		C774F1B52DE39430007E4866 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C65A377E201EEA280066A895 /* libc++.tbd */; };
+		C785F31E2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C785F31D2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.m */; };
+		C785F3212E350018002E3170 /* SUPTableViewHitchDetectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C785F3202E350018002E3170 /* SUPTableViewHitchDetectViewController.m */; };
 		C7D778742DE4CFC6001D06C9 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D778732DE4CFC6001D06C9 /* libstdc++.6.0.9.tbd */; };
 		C7D778762DE4CFCE001D06C9 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D778752DE4CFCE001D06C9 /* libstdc++.6.tbd */; };
 		FC83D78C6F6E342EA45C984D /* libPods-SuperProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7205373AE02612EF52B6C30D /* libPods-SuperProject.a */; };
@@ -1581,6 +1583,10 @@
 		C6FD59AF2023061300792C3A /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
 		C6FD59B02023061300792C3A /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		C6FD59C7202306CB00792C3A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		C785F31C2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUPTableViewHitchDetectCell.h; sourceTree = "<group>"; };
+		C785F31D2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUPTableViewHitchDetectCell.m; sourceTree = "<group>"; };
+		C785F31F2E350018002E3170 /* SUPTableViewHitchDetectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUPTableViewHitchDetectViewController.h; sourceTree = "<group>"; };
+		C785F3202E350018002E3170 /* SUPTableViewHitchDetectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUPTableViewHitchDetectViewController.m; sourceTree = "<group>"; };
 		C7D778732DE4CFC6001D06C9 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		C7D778752DE4CFCE001D06C9 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -3088,6 +3094,7 @@
 		C6963121200CA96C006958F7 /* 基础理论 */ = {
 			isa = PBXGroup;
 			children = (
+				C785F31A2E34FF61002E3170 /* 常用实践 */,
 				C6963122200CA97F006958F7 /* SUPLiftCycleViewController.h */,
 				C6963123200CA97F006958F7 /* SUPLiftCycleViewController.m */,
 				C62DEF3D200DC4380042A7C7 /* SUPRunTimeViewController.h */,
@@ -4100,6 +4107,25 @@
 			path = UMessage_Sdk_1.5.0a;
 			sourceTree = "<group>";
 		};
+		C785F31A2E34FF61002E3170 /* 常用实践 */ = {
+			isa = PBXGroup;
+			children = (
+				C785F31B2E34FF88002E3170 /* UITableView卡顿检测 */,
+			);
+			path = "常用实践";
+			sourceTree = "<group>";
+		};
+		C785F31B2E34FF88002E3170 /* UITableView卡顿检测 */ = {
+			isa = PBXGroup;
+			children = (
+				C785F31C2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.h */,
+				C785F31D2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.m */,
+				C785F31F2E350018002E3170 /* SUPTableViewHitchDetectViewController.h */,
+				C785F3202E350018002E3170 /* SUPTableViewHitchDetectViewController.m */,
+			);
+			path = "UITableView卡顿检测";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4478,6 +4504,7 @@
 				C646FE2920B6980D000DCE65 /* SUPCountDownCell.m in Sources */,
 				C68B043B20185CDA004B3F51 /* SUPIntroductoryPagesView.m in Sources */,
 				C623C40820C4DE8C00BA2B48 /* MCFireworksView.m in Sources */,
+				C785F3212E350018002E3170 /* SUPTableViewHitchDetectViewController.m in Sources */,
 				C6D7B14420D0E32A002862F0 /* GZView.m in Sources */,
 				C646FE1F20B6980D000DCE65 /* SUPCoordinateModel.m in Sources */,
 				C623C40320C4DE8C00BA2B48 /* TitleButton.m in Sources */,
@@ -4736,6 +4763,7 @@
 				C6572AA320CE0CE900615BC4 /* SAMath.m in Sources */,
 				C6572A8D20CE0CB200615BC4 /* SBJson4Parser.m in Sources */,
 				C6DC240E20BE8C400005BFA1 /* NSDate+InternetDateTime.m in Sources */,
+				C785F31E2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.m in Sources */,
 				C68B03F520176858004B3F51 /* UITabBarController+ZFPlayerRotation.m in Sources */,
 				C6DC20D920BD5E580005BFA1 /* JiaMediator.m in Sources */,
 				C65624A820CBD2DF0066877E /* VolumeWaveView.m in Sources */,
