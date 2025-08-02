@@ -53,6 +53,12 @@
     // 从JSContext中获取我们定义的'add'函数
     JSValue *addFunction = self.jsContext[@"add"];
     
+    // 安全检查：在调用前，确认该JSValue不是undefined
+    if ([addFunction isUndefined]) {
+        NSLog(@"[OC] Error: JavaScript function 'add' not found in JSContext.");
+        return; // 直接返回，避免崩溃
+    }
+    
     // 准备要传递给JS函数的参数
     NSArray *args = @[@5, @10];
     
