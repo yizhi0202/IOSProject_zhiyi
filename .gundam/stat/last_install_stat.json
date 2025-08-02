@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "pod_version": "1.11.3",
+      "start_time": "2025-07-27T20:13:50.852+08:00",
+      "success": false,
+      "git": {
+        "user_name": "xiaoyang07",
+        "user_email": "xiaoyang07@kuaishou.com",
+        "branch": "dev/learn/xy07",
+        "commit": "10cfa90",
+        "remote": "git@github.com:yizhi0202/IOSProject_zhiyi.git",
+        "whoami": "zhi_yi"
+      },
+      "upload_time": "2025-07-27T20:13:50.852+08:00",
+      "upload_ts": 1753618430,
+      "ruby_version": "3.0.0",
+      "os_version": "14.7",
+      "ip": "192.168.31.179",
+      "cpu": "Apple M2 Pro",
+      "xcode_version": "16.2",
+      "xcode_build_version": "16C5032a",
+      "errors": "\n[!] Error installing SocketRocket",
+      "name": "pod install error",
+      "pod_install_id": "98710c783e415bf4819d31388d2ca92d"
+    }
+  ]
+}

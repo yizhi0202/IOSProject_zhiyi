@@ -1,0 +1,12 @@
+Analyzing dependencies
+Pre-downloading: `GVUserDefaults` from `https://github.com/yizhi0202/GVUserDefaults.git`, tag `1.0.2`
+Pre-downloading: `SocketRocket` from `https://github.com/facebook/SocketRocket.git`, tag `0.5.1`
+Downloading dependencies
+[32mInstalling AFNetworking 3.2.0 (source changed to `trunk` from `https://github.com/cocoapods/specs.git`)[0m
+[32mInstalling GVUserDefaults 1.0.2[0m
+[32mInstalling Masonry 1.1.0 (source changed to `git@git.corp.kuaishou.com:ios/dependents.git` from `https://github.com/cocoapods/specs.git`)[0m
+[32mInstalling Reachability 3.2 (source changed to `git@git.corp.kuaishou.com:ios/dependents.git` from `https://github.com/cocoapods/specs.git`)[0m
+[32mInstalling SocketRocket 0.5.1[0m
+Generating Pods project
+Integrating client project
+[32mPod installation complete! There are 39 dependencies from the Podfile and 37 total pods installed.[0m

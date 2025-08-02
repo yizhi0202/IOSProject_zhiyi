@@ -57,7 +57,7 @@ pod 'M13ProgressSuite'
 pod 'TDTouchID'
 
 # 数据存储
-pod 'GVUserDefaults'
+pod 'GVUserDefaults', :git => 'https://github.com/yizhi0202/GVUserDefaults.git', :tag => '1.0.2'
 
 # scrollpageView
 pod 'ZJScrollPageView'
@@ -94,7 +94,7 @@ pod 'pop'
 #MQTT
 pod 'MQTTClient'
 pod 'MQTTClient/Websocket'
-pod 'SocketRocket'
+pod 'SocketRocket', :git => 'https://github.com/facebook/SocketRocket.git', :tag => '0.5.1'
 
 #JS与OC交互
 pod 'WebViewJavascriptBridge'
