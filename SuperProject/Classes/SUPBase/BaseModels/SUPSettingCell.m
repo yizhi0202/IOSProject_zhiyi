@@ -30,6 +30,13 @@ static NSString *const ID = @"cellSetting";
     return cell;
 }
 
+#pragma mark 基础生命周期
+
+- (void)dealloc
+{
+    NSLog(@"SUPSettingCell dealloc trigger");
+}
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -38,6 +45,11 @@ static NSString *const ID = @"cellSetting";
     }
     
     return self;
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    NSLog(@"SUPSettingCell prepareForReuse trigger!");
 }
 
 - (void)awakeFromNib
@@ -117,7 +129,7 @@ static NSString *const ID = @"cellSetting";
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
+    NSLog(@"SUPSettingCell layoutSubviews call");
 }
 
 

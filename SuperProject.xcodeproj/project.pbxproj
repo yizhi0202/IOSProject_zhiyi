@@ -573,6 +573,7 @@
 		C6EF78EB20568CAA00D7EA78 /* CYLPlusButtonSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EF78EA20568CAA00D7EA78 /* CYLPlusButtonSubclass.m */; };
 		C6FD59C62023061300792C3A /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FD59AF2023061300792C3A /* libUMessage_Sdk_1.5.0a.a */; };
 		C6FD59C8202306CB00792C3A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FD59C7202306CB00792C3A /* UserNotifications.framework */; };
+		C75E12362E3E4E6400D5AF5C /* SUPOjecCAndJSInteractionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C75E12352E3E4E6400D5AF5C /* SUPOjecCAndJSInteractionViewController.m */; };
 		C774F1B52DE39430007E4866 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C65A377E201EEA280066A895 /* libc++.tbd */; };
 		C785F31E2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C785F31D2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.m */; };
 		C785F3212E350018002E3170 /* SUPTableViewHitchDetectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C785F3202E350018002E3170 /* SUPTableViewHitchDetectViewController.m */; };
@@ -1583,6 +1584,8 @@
 		C6FD59AF2023061300792C3A /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
 		C6FD59B02023061300792C3A /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		C6FD59C7202306CB00792C3A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		C75E12342E3E4E6400D5AF5C /* SUPOjecCAndJSInteractionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUPOjecCAndJSInteractionViewController.h; sourceTree = "<group>"; };
+		C75E12352E3E4E6400D5AF5C /* SUPOjecCAndJSInteractionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUPOjecCAndJSInteractionViewController.m; sourceTree = "<group>"; };
 		C785F31C2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUPTableViewHitchDetectCell.h; sourceTree = "<group>"; };
 		C785F31D2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUPTableViewHitchDetectCell.m; sourceTree = "<group>"; };
 		C785F31F2E350018002E3170 /* SUPTableViewHitchDetectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUPTableViewHitchDetectViewController.h; sourceTree = "<group>"; };
@@ -4107,9 +4110,19 @@
 			path = UMessage_Sdk_1.5.0a;
 			sourceTree = "<group>";
 		};
+		C75E12332E3E4E3300D5AF5C /* OC与JS交互 */ = {
+			isa = PBXGroup;
+			children = (
+				C75E12342E3E4E6400D5AF5C /* SUPOjecCAndJSInteractionViewController.h */,
+				C75E12352E3E4E6400D5AF5C /* SUPOjecCAndJSInteractionViewController.m */,
+			);
+			path = "OC与JS交互";
+			sourceTree = "<group>";
+		};
 		C785F31A2E34FF61002E3170 /* 常用实践 */ = {
 			isa = PBXGroup;
 			children = (
+				C75E12332E3E4E3300D5AF5C /* OC与JS交互 */,
 				C785F31B2E34FF88002E3170 /* UITableView卡顿检测 */,
 			);
 			path = "常用实践";
@@ -4737,6 +4750,7 @@
 				C6EF78EB20568CAA00D7EA78 /* CYLPlusButtonSubclass.m in Sources */,
 				C6DC23DC20BE8C400005BFA1 /* NSString+Base64.m in Sources */,
 				C6DC23F020BE8C400005BFA1 /* NSArray+Block.m in Sources */,
+				C75E12362E3E4E6400D5AF5C /* SUPOjecCAndJSInteractionViewController.m in Sources */,
 				C623C3FD20C4DE8C00BA2B48 /* AffineTransformController.m in Sources */,
 				C6DC244820BE94F50005BFA1 /* JiaShareMenuView.m in Sources */,
 				C62755E420DA90C300D0DE8D /* YSCloadGifViewController.m in Sources */,
