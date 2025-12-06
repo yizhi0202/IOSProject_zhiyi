@@ -8,7 +8,6 @@
 
 #import "SUPTableViewHitchDetectViewController.h"
 #import "SUPTableViewHitchDetectCell.h"
-#import "SUPSimpleFlameGraph.h"
 
 @interface SUPTableViewHitchDetectViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -27,24 +26,9 @@
     self.title = @"性能测试";
     
     self.isOptimizedMode = NO;
-    // 1. 启动采样（每 10ms 采样一次）
-    [[SUPSimpleFlameGraph sharedInstance] startSamplingWithInterval:0.01];
     
     [self setupData];
     [self setupUI];
-    // 2. 执行一些耗时操作...
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        // 3. 停止采样
-        [[SUPSimpleFlameGraph sharedInstance] stopSampling];
-        [[SUPSimpleFlameGraph sharedInstance] printFoldedStackToConsole];
-        
-        // 4. 生成火焰图视图
-//        UIView *flameGraph = [[SUPSimpleFlameGraph sharedInstance]
-//                              generateFlameGraphViewWithFrame:CGRectMake(0, 100,
-//                              UIScreen.mainScreen.bounds.size.width, 400)];
-//        
-//        [self.view addSubview:flameGraph];
-    });
 }
 
 - (void)setupData {

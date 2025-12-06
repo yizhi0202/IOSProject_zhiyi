@@ -573,6 +573,7 @@
 		C6EF78EB20568CAA00D7EA78 /* CYLPlusButtonSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EF78EA20568CAA00D7EA78 /* CYLPlusButtonSubclass.m */; };
 		C6FD59C62023061300792C3A /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FD59AF2023061300792C3A /* libUMessage_Sdk_1.5.0a.a */; };
 		C6FD59C8202306CB00792C3A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FD59C7202306CB00792C3A /* UserNotifications.framework */; };
+		C73AF2F42EE46D6300BA392E /* SUPSimpleFlameGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = C73AF2F32EE46D6300BA392E /* SUPSimpleFlameGraph.m */; };
 		C75E12362E3E4E6400D5AF5C /* SUPOjecCAndJSInteractionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C75E12352E3E4E6400D5AF5C /* SUPOjecCAndJSInteractionViewController.m */; };
 		C774F1B52DE39430007E4866 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C65A377E201EEA280066A895 /* libc++.tbd */; };
 		C785F31E2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C785F31D2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.m */; };
@@ -1584,6 +1585,8 @@
 		C6FD59AF2023061300792C3A /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
 		C6FD59B02023061300792C3A /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		C6FD59C7202306CB00792C3A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		C73AF2F22EE46D6300BA392E /* SUPSimpleFlameGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUPSimpleFlameGraph.h; sourceTree = "<group>"; };
+		C73AF2F32EE46D6300BA392E /* SUPSimpleFlameGraph.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUPSimpleFlameGraph.m; sourceTree = "<group>"; };
 		C75E12342E3E4E6400D5AF5C /* SUPOjecCAndJSInteractionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUPOjecCAndJSInteractionViewController.h; sourceTree = "<group>"; };
 		C75E12352E3E4E6400D5AF5C /* SUPOjecCAndJSInteractionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUPOjecCAndJSInteractionViewController.m; sourceTree = "<group>"; };
 		C785F31C2E34FFF6002E3170 /* SUPTableViewHitchDetectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUPTableViewHitchDetectCell.h; sourceTree = "<group>"; };
@@ -4110,6 +4113,15 @@
 			path = UMessage_Sdk_1.5.0a;
 			sourceTree = "<group>";
 		};
+		C73AF2F12EE46D2200BA392E /* 火焰图原理 */ = {
+			isa = PBXGroup;
+			children = (
+				C73AF2F22EE46D6300BA392E /* SUPSimpleFlameGraph.h */,
+				C73AF2F32EE46D6300BA392E /* SUPSimpleFlameGraph.m */,
+			);
+			path = "火焰图原理";
+			sourceTree = "<group>";
+		};
 		C75E12332E3E4E3300D5AF5C /* OC与JS交互 */ = {
 			isa = PBXGroup;
 			children = (
@@ -4122,6 +4134,7 @@
 		C785F31A2E34FF61002E3170 /* 常用实践 */ = {
 			isa = PBXGroup;
 			children = (
+				C73AF2F12EE46D2200BA392E /* 火焰图原理 */,
 				C75E12332E3E4E3300D5AF5C /* OC与JS交互 */,
 				C785F31B2E34FF88002E3170 /* UITableView卡顿检测 */,
 			);
@@ -4521,6 +4534,7 @@
 				C6D7B14420D0E32A002862F0 /* GZView.m in Sources */,
 				C646FE1F20B6980D000DCE65 /* SUPCoordinateModel.m in Sources */,
 				C623C40320C4DE8C00BA2B48 /* TitleButton.m in Sources */,
+				C73AF2F42EE46D6300BA392E /* SUPSimpleFlameGraph.m in Sources */,
 				C6D9C96E2011C35500AEA963 /* SUPListExpendHeaderView.m in Sources */,
 				C64AD48020D921C5008955FF /* YSCWaterWaveView.m in Sources */,
 				C65624A920CBD2DF0066877E /* TextFieldSTTInputHandler.m in Sources */,
