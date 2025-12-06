@@ -4173,7 +4173,7 @@
 				TargetAttributes = {
 					C69630B22008968E006958F7 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -4961,10 +4961,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_ENTITLEMENTS = SuperProject/SuperProject.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Longzheng Inter Software Technology Co., Ltd (9WM5WM4GZ3)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GVRN8DQUJ6;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GVRN8DQUJ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5086,10 +5087,11 @@
 					"\"UIKit\"",
 					"-ld_classic",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.www.SuperProject-zhiyi";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.www.SuperProject-yizhi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = p12ForSuperProjectZhiyi;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = (
 					"-Wno-documentation",
@@ -5108,10 +5110,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_ENTITLEMENTS = SuperProject/SuperProject.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Longzheng Inter Software Technology Co., Ltd (9WM5WM4GZ3)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GVRN8DQUJ6;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GVRN8DQUJ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5233,10 +5236,11 @@
 					"\"UIKit\"",
 					"-ld_classic",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.www.SuperProject-zhiyi";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.www.SuperProject-yizhi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = p12ForSuperProjectZhiyi;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = (
 					"-Wno-documentation",
