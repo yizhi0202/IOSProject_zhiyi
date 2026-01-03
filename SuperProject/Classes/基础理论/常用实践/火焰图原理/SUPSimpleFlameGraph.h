@@ -33,6 +33,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取聚合后的调用树
 - (KSStackNode *)aggregatedCallTree;
 
+/// 打印详细统计（包含具体时间和采样次数）
+- (void)printDetailedStatistics;
+
+/// 导出为 Folded Stack 格式（标准格式，兼容 speedscope）
+- (NSString *)exportToFoldedStackFormat;
+
+/// 导出为带时间注释的格式（供查看，包含 ms 信息）
+- (NSString *)exportToFoldedStackWithTimeComments;
+
 @end
 
 NS_ASSUME_NONNULL_END

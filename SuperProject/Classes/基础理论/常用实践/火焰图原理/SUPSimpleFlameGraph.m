@@ -50,6 +50,7 @@ typedef struct {
 @property (nonatomic, strong) KSStackNode *rootNode;
 @property (nonatomic, assign) NSUInteger totalSamples;
 @property (nonatomic, strong) dispatch_queue_t samplingQueue;
+@property (nonatomic, assign) NSTimeInterval samplingInterval;
 @end
 
 @implementation SUPSimpleFlameGraph
@@ -85,6 +86,9 @@ typedef struct {
     [self stopSampling];
     [self reset];
     
+    // 保存采样间隔，用于后续计算实际时间
+    self.samplingInterval = interval;
+    
     // 预先获取主线程 port（在主线程执行）
     [self getMainMachThread];
     
@@ -99,6 +103,8 @@ typedef struct {
     });
     
     dispatch_resume(self.samplingTimer);
+    
+    NSLog(@"🔥 开始火焰图采样 - 间隔: %.2f ms", interval * 1000);
 }
 
 - (void)stopSampling {
@@ -111,13 +117,14 @@ typedef struct {
 
 #pragma mark - 火焰图导出
 /// 导出为 Folded Stack 格式（可用于 speedscope.app）
+/// 输出格式：采样次数转换为微秒，speedscope 会显示为具体时间
 - (NSString *)exportToFoldedStackFormat {
     NSMutableString *output = [NSMutableString string];
     [self exportNode:self.rootNode path:@"" output:output];
     return output;
 }
 
-/// 递归导出节点
+/// 递归导出节点（输出微秒数，speedscope 会显示为时间）
 - (void)exportNode:(KSStackNode *)node path:(NSString *)path output:(NSMutableString *)output {
     NSString *currentPath;
     
@@ -129,8 +136,10 @@ typedef struct {
     
     // 如果是叶子节点或者有自己的采样（不只是传递给子节点）
     if (node.children.count == 0) {
-        // 叶子节点：输出完整路径和采样数
-        [output appendFormat:@"%@ %lu\n", currentPath, (unsigned long)node.sampleCount];
+        // 叶子节点：输出完整路径和时间（微秒）
+        // 公式：微秒 = 采样次数 × 采样间隔(秒) × 1,000,000
+        NSUInteger microseconds = (NSUInteger)(node.sampleCount * self.samplingInterval * 1000000);
+        [output appendFormat:@"%@ %lu\n", currentPath, (unsigned long)microseconds];
     } else {
         // 计算自身消耗（总采样 - 子节点采样之和）
         NSUInteger childrenSamples = 0;
@@ -140,7 +149,9 @@ typedef struct {
         
         NSUInteger selfSamples = node.sampleCount - childrenSamples;
         if (selfSamples > 0) {
-            [output appendFormat:@"%@ %lu\n", currentPath, (unsigned long)selfSamples];
+            // 输出自身耗时（微秒）
+            NSUInteger microseconds = (NSUInteger)(selfSamples * self.samplingInterval * 1000000);
+            [output appendFormat:@"%@ %lu\n", currentPath, (unsigned long)microseconds];
         }
         
         // 递归处理子节点
@@ -152,8 +163,154 @@ typedef struct {
 
 /// 打印到控制台并返回
 - (void)printFoldedStackToConsole {
-    NSString *foldedStack = [self exportToFoldedStackFormat];
-    NSLog(@"\n\n========== 🔥 FLAME GRAPH DATA (复制以下内容到 speedscope.app) ==========\n%@\n========== END ==========\n", foldedStack);
+    NSLog(@"\n========== 📊 采样统计信息 ==========");
+    NSLog(@"总采样次数: %lu", (unsigned long)self.totalSamples);
+    NSLog(@"采样间隔: %.2f ms", self.samplingInterval * 1000);
+    NSLog(@"总耗时估算: %.2f ms", self.totalSamples * self.samplingInterval * 1000);
+    NSLog(@"=====================================\n");
+    
+    // 标准格式（数字为微秒，speedscope 会显示为具体时间）
+    NSString *standardFormat = [self exportToFoldedStackFormat];
+    NSLog(@"\n========== 🔥 FLAME GRAPH DATA (复制以下内容到 speedscope.app) ==========");
+    NSLog(@"提示：数字单位为微秒(μs)，speedscope 会自动转换显示为 ms 或 s\n");
+    NSLog(@"%@", standardFormat);
+    NSLog(@"========== END ==========\n");
+    
+    // 带时间注释的格式（供参考）
+    NSLog(@"\n========== 📝 带时间信息的格式 (供查看) ==========");
+    NSString *withComments = [self exportToFoldedStackWithTimeComments];
+    NSLog(@"%@", withComments);
+    NSLog(@"========== END ==========\n");
+}
+
+/// 导出为带时间注释的格式（供查看）
+- (NSString *)exportToFoldedStackWithTimeComments {
+    NSMutableString *output = [NSMutableString string];
+    [self exportNodeWithTimeComments:self.rootNode path:@"" output:output];
+    return output;
+}
+
+/// 递归导出节点（带时间注释）
+- (void)exportNodeWithTimeComments:(KSStackNode *)node path:(NSString *)path output:(NSMutableString *)output {
+    NSString *currentPath;
+    
+    if (path.length == 0) {
+        currentPath = node.symbolName;
+    } else {
+        currentPath = [NSString stringWithFormat:@"%@;%@", path, node.symbolName];
+    }
+    
+    if (node.children.count == 0) {
+        // 叶子节点
+        double timeMs = node.sampleCount * self.samplingInterval * 1000;
+        [output appendFormat:@"%@ %lu  (%.2f ms)\n", currentPath, (unsigned long)node.sampleCount, timeMs];
+    } else {
+        // 计算自身消耗
+        NSUInteger childrenSamples = 0;
+        for (KSStackNode *child in node.children.allValues) {
+            childrenSamples += child.sampleCount;
+        }
+        
+        NSUInteger selfSamples = node.sampleCount - childrenSamples;
+        if (selfSamples > 0) {
+            double timeMs = selfSamples * self.samplingInterval * 1000;
+            [output appendFormat:@"%@ %lu  (%.2f ms)\n", currentPath, (unsigned long)selfSamples, timeMs];
+        }
+        
+        // 递归处理子节点
+        for (KSStackNode *child in node.children.allValues) {
+            [self exportNodeWithTimeComments:child path:currentPath output:output];
+        }
+    }
+}
+
+/// 打印详细统计信息
+- (void)printDetailedStatistics {
+    NSLog(@"\n========== 📊 火焰图详细统计 ==========");
+    NSLog(@"总采样次数: %lu", (unsigned long)self.totalSamples);
+    NSLog(@"采样间隔: %.2f ms", self.samplingInterval * 1000);
+    NSLog(@"总耗时估算: %.2f ms\n", self.totalSamples * self.samplingInterval * 1000);
+    
+    // 收集所有路径和统计
+    NSMutableArray<NSDictionary *> *stats = [NSMutableArray array];
+    [self collectStatistics:self.rootNode path:@"" array:stats];
+    
+    // 按采样次数排序（从高到低）
+    [stats sortUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
+        return [obj2[@"samples"] compare:obj1[@"samples"]];
+    }];
+    
+    // 打印表格头
+    NSLog(@"%-70s %10s %12s %10s", "调用路径", "采样次数", "耗时(ms)", "占比(%)");
+    NSLog(@"%s", "========================================================================================================");
+    
+    // 只显示 Top 20，避免输出过多
+    NSInteger displayCount = MIN(stats.count, 20);
+    for (NSInteger i = 0; i < displayCount; i++) {
+        NSDictionary *stat = stats[i];
+        NSString *path = stat[@"path"];
+        NSUInteger samples = [stat[@"samples"] unsignedIntegerValue];
+        double timeMs = samples * self.samplingInterval * 1000;
+        double percentage = (double)samples / self.totalSamples * 100;
+        
+        // 截断过长的路径
+        NSString *displayPath = path;
+        if (path.length > 70) {
+            displayPath = [NSString stringWithFormat:@"...%@", [path substringFromIndex:path.length - 67]];
+        }
+        
+        NSLog(@"%-70s %10lu %12.2f %9.2f%%", 
+              displayPath.UTF8String,
+              (unsigned long)samples,
+              timeMs,
+              percentage);
+    }
+    
+    if (stats.count > 20) {
+        NSLog(@"... 还有 %lu 条记录未显示", (unsigned long)(stats.count - 20));
+    }
+    
+    NSLog(@"========== END ==========\n");
+}
+
+/// 收集统计信息（递归）
+- (void)collectStatistics:(KSStackNode *)node 
+                     path:(NSString *)path 
+                    array:(NSMutableArray *)array {
+    NSString *currentPath;
+    
+    if (path.length == 0) {
+        currentPath = node.symbolName;
+    } else {
+        currentPath = [NSString stringWithFormat:@"%@;%@", path, node.symbolName];
+    }
+    
+    if (node.children.count == 0) {
+        // 叶子节点
+        [array addObject:@{
+            @"path": currentPath,
+            @"samples": @(node.sampleCount)
+        }];
+    } else {
+        // 计算自身消耗
+        NSUInteger childrenSamples = 0;
+        for (KSStackNode *child in node.children.allValues) {
+            childrenSamples += child.sampleCount;
+        }
+        
+        NSUInteger selfSamples = node.sampleCount - childrenSamples;
+        if (selfSamples > 0) {
+            [array addObject:@{
+                @"path": currentPath,
+                @"samples": @(selfSamples)
+            }];
+        }
+        
+        // 递归处理子节点
+        for (KSStackNode *child in node.children.allValues) {
+            [self collectStatistics:child path:currentPath array:array];
+        }
+    }
 }
 
 #pragma mark - 调用栈采集
