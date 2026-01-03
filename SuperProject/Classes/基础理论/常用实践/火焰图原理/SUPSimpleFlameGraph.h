@@ -33,9 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取聚合后的调用树
 - (KSStackNode *)aggregatedCallTree;
 
-/// 生成火焰图视图
-- (UIView *)generateFlameGraphViewWithFrame:(CGRect)frame;
-
 @end
 
 NS_ASSUME_NONNULL_END

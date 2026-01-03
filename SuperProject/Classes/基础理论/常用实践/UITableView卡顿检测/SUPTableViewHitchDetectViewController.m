@@ -37,13 +37,6 @@
         // 3. 停止采样
         [[SUPSimpleFlameGraph sharedInstance] stopSampling];
         [[SUPSimpleFlameGraph sharedInstance] printFoldedStackToConsole];
-        
-        // 4. 生成火焰图视图
-//        UIView *flameGraph = [[SUPSimpleFlameGraph sharedInstance]
-//                              generateFlameGraphViewWithFrame:CGRectMake(0, 100,
-//                              UIScreen.mainScreen.bounds.size.width, 400)];
-//        
-//        [self.view addSubview:flameGraph];
     });
 }
 
